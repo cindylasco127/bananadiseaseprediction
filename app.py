@@ -82,43 +82,6 @@ def predict(image):
 ## -----------------------------------------------------x---------------------------------------x--------------------------------------------##
 
 
-## this code for format tflite file
-# def predict(image):
-#    model = "classify-vgg19-model-final.h5" 
-
-
-#    interpreter = tf.lite.Interpreter(model_path = model)
-#   interpreter.allocate_tensors()
-#    input_details = interpreter.get_input_details()
-#    output_details = interpreter.get_output_details()
-    
-#    input_shape = input_details[0]['shape']
-#    image = np.array(image.resize((200,200)), dtype=np.float32) 
-    
-#    image = image / 255.0
-#    image = np.expand_dims(image, axis=0)
-
-#    interpreter.set_tensor(input_details[0]['index'], image)
-#    interpreter.invoke()
-#    output_data = interpreter.get_tensor(output_details[0]['index'])
-#    probabilities = np.array(output_data[0])
-
-#    labels = {0 : "healthy", 1 : "bunchy top", 2 : "fusarium wilt", 3 : "moko", 4 : "sigatoka"} 
-
-#    label_to_probabilities = []
-
-#    for i, probability in enumerate(probabilities):
-#        label_to_probabilities.append([labels[i], float(probability)])
-    
-#    sorted(label_to_probabilities, key=lambda element: element[1])
-
-#    result = { 'healthy' : 0 , 'bunchy top' : 0 , 'fusarium wilt' : 0 , 'moko' : 0 , 'sigatoka' : 0}
-    
-#    result = f"{label_to_probabilities[np.argmax(probability)][0]} with a { (100 * np.max(probabilities)).round(2)} % confidence." 
-    
-#   return result
-
-
 
 if __name__ == "__main__":
     main()
